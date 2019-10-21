@@ -11,3 +11,34 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+.blueText {
+  padding: 10px 0;
+  color: #0cb4ea;
+}
+.borderBottom{
+  margin-bottom: 15px;
+  border-bottom: 2px solid #0cb4ea;
+}
+.searchFrm input[type="text"]
+{
+   width: 82%; 
+    padding: 3px;
+    margin-right: 1%;
+}
+.searchFrm input[type="submit"]{
+  background-color: #0cb4ea;
+  color:#fff;
+  border: 0;
+  padding: 5px 10px;
+}
+.marginBottom{
+  margin-bottom: 15px;
+}
+.individualResultsCon{
+    padding: 15px;
+    box-shadow: 1px 1px 4px 1px #cfcfcf;
+    margin-bottom: 15px;
+}
+.colorGray{
+  color: gray;
+}
