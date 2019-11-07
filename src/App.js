@@ -66,9 +66,11 @@ class App extends Component {
   }
 
   getResults = (key_val) => {
+      document.getElementById('finalCon').innerHTML = "Loading...";
       axios.get('https://aravindtwitter.herokuapp.com/twittersearch?key='+key_val).then(res => {
       this.setState({ final_data: res.data });
       //console.log('data', this.state.final_data.statuses);
+      document.getElementById('finalCon').innerHTML = "";
       }).catch(function (error) {
         // handle error
         console.log(error);
@@ -82,6 +84,15 @@ class App extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
+
+    var url_string = window.location.href;
+    var url = new URL(url_string);
+
+   // console.log('URL::', url);
+
+    var newurl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?key='+this.state.value;
+    window.history.pushState({path:newurl},'',newurl);
+
     this.getResults(this.state.value);
   }
 
@@ -99,7 +110,7 @@ class App extends Component {
 
     
   }
-
+  
 
  render(){
  
@@ -152,7 +163,10 @@ class App extends Component {
         <Col sm={12}><div className="marginBottom"></div></Col>
       </Row>
       <Row>
-        <Col sm={12}>{FinalResults}</Col>
+        <Col sm={12}>
+        <div align="center" className="marginBottom" id="finalCon"></div>
+        {FinalResults}
+        </Col>
       </Row>
       <Row>
         <Col sm={12}><div className="marginBottom"></div></Col>
